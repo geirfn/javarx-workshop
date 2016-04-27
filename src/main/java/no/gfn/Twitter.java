@@ -31,6 +31,9 @@ public class Twitter {
                     subscriber.onError(ex);
                 }
             });
+            // Starts listening on random sample of all public statuses. The default access level provides a small proportion of the Firehose.
+            // The "Gardenhose" access level provides a proportion more suitable for data mining and research applications
+            // that desire a larger proportion to be statistically significant sample.
             twitterStream.sample();
         });
     }
