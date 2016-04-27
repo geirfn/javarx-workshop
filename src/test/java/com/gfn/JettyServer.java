@@ -1,6 +1,5 @@
 package com.gfn;
 
-import no.gfn.CustomWebSocketServlet;
 import no.gfn.Twitter;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -12,7 +11,6 @@ public class JettyServer {
     public static void main(String[] args) throws Exception {
         Server server = new Server(8080);
         ServletContextHandler handler = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        handler.addServlet(CustomWebSocketServlet.class, "/ws");
 
         ResourceHandler resourceHandler = new ResourceHandler();
         resourceHandler.setResourceBase("src/main/webapp");

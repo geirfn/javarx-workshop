@@ -17,17 +17,9 @@ public class Twitter {
         twitterObservable()
                 .map(s -> asList(s.getHashtagEntities()))
                 .subscribe(s -> s.forEach(v -> System.out.println(v.getText())));
-
-
-        System.out.println('b' +  66);
-
-
-        //.map(Status::getText)
-        //.filter(text -> text.contains("#java"))
-        //.subscribe(s -> System.out.println(a));
     }
 
-    public Observable<Status> twitterObservable() {
+    private Observable<Status> twitterObservable() {
         return Observable.create(subscriber -> {
             final TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
             twitterStream.addListener(new StatusAdapter() {
